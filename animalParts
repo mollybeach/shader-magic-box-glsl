@@ -70,7 +70,6 @@ let dogMouth = shape( () => {
   torus(0.0102*size, 0.018*size);
   expand(size*0.03*sin(2*time));
 });
-  mouth();
 let dogNose = shape( () => {
   color(standard);
   //let s = getSpace();
