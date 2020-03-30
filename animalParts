@@ -1,300 +1,6 @@
-//animal parts
-size = 1.0
-let standard = vec3(1.0, 1.0, 1.0);
-//************************************************************************bird
-let birdBeak = shape( () => {
-  rotateZ(PI/2);
-  color(standard);
-  displace(-0.042*size, 0.0, 0.5*size);
-  torus(0.0735*size, 0.0533*size);
-  displace(0.010*size, 0.0*size, 0.215*size);
-  blend(0.2*size);
-  rotateX(PI/2);
-  cylinder(0.02*size, 0.12*size);
-  expand(0.023*size);
-let birdNostrils = shape( () => {
-  rotateZ(PI/2);
-  color(standard);
-  displace(0.01*size, -0.03*size,0.054*size);
-  torus(0.01*size, 0.0018*size);
-  expand(0.0*size);
-});
-let outerFeather = shape( () => {
-  displace(0.21*size,0.4*size,0.21*size);
-  rotateZ(PI/1.4);
-  rotateX(PI/9);
-  cylinder(0.013*size,0.263*size);
-  blend(0.46*size);
-  sphere(0.051*size);
-});
-let birdWings = shape( () => {
-let verticalWings = shape( () => {
-  rotateY(0.2*sin(time*4))
-  color(standard);
-  displace(0.57*size,-0.15*size,-0.012*size);
-  let p = getSpace();
-  let sd = sphericalDistribution(p,75.0);
-  rotateX(PI/0.5);
-  rotateZ(PI/1.1);
-  rotateY(PI/5);
-  cylinder(0.09*size,0.22*size);
-  blend(0.26*size);
-  color(standard);
-   sphere(size*0.13-sd.w*0.1*size);
-  rotateX(PI/1.9);
-  torus(size*0.125-sd.w*0.043*size, size*0.0571-sd.w*0.01*size);
-  displace(-0.1091*size,-0.170*size, -0.029*size);
-  //rotateZ(PI/1);
-  torus(size*0.25-sd.w*0.03*size, size*0.1-sd.w*0.09*size);
-  //wing subtract
-  color(standard);
-  displace(0.0,0.35*size, -0.42*size);
-  //rotateZ(PI/1);
-  torus(0.2*size-sd.w*0.03*size, size*0.2-sd.w*0.09*size);
-});
-birdBeak();
-birdBeak();
-birdNostrils();
-//************************************************************************dog
-let dogSnout = shape( () => {
-  rotateZ(PI/2);
-  color(standard);
-  displace(-0.10*size, 0.0*size, 0.60*size);
-  torus(0.035*size, 0.033*size);
-  displace(0.010*size, 0.0*size, 0.15*size);
-  rotateZ(PI/2);
-let dogMouth = shape( () => {
-  color(standard);
-  //let s = getSpace();
-  displace(0.0*size,0.10*size,-0.1216*size);
-  torus(0.0102*size, 0.018*size);
-  expand(size*0.03*sin(2*time));
-});
-  mouth();
-let dogNose = shape( () => {
-  color(standard);
-  //let s = getSpace();
-  displace(0.0,-0.0,0.101*size);
-  torus(0.0015*size, 0.00018*size);
-  //expand(0.02*size);
-}); nose();
-  blend(0.2*size);
-  sphere(0.03*size);
-});
-let dogTail = shape( () => {
-let verticalTail = shape( () => {
-  rotateZ(0.03*sin(time*6));
-  rotateY(0.01*sin(time*6));
-  color(colorChange);
-  displace(0.0, size*-0.1, size*-0.21098);
-  rotateY(PI/2);
-  rotateZ(-PI/1.14);
-  cylinder(size*0.038,size*0.194);
-  expand(size*0.051);
-  blend(0.26*size);
-  sphere(size*0.0915);
-  expand(0.021*size);
-  color(lightBlue);
-  displace(size*0.134*sin(time*6), -0.260*size, 0.035*size);
-  cylinder(0.02*size,0.21*size);
-  blend(0.26*size);
-  sphere(0.015*size);
-});
-dogSnout();
-dogMouth();
-dogNose();
-dogTail();
-//*********************************************************************raccoon
-let outerEarRaccoon = shape( () => {
-  color(standard);
-  displace(0.21*size,0.3*size,0.32*size);
-  rotateZ(PI/3.6);
-  rotateY(PI/5);
-  cylinder(0.01*size,0.094*size);
-  blend(0.26*size);
-  color(0.2,0.1,0.05);
-  sphere(0.114*size);
-});
-let racconSnout = shape( () => {
-  rotateZ(PI/2);
-  color(standard);
-  displace(-0.10*size, 0.0*size, 0.60*size);
-  torus(0.035*size, 0.033*size);
-  displace(0.010*size, 0.0*size, 0.15*size);
-  rotateZ(PI/2);
-let raccoonMouth = shape( () => {
-  color(standard);
-  //let s = getSpace();
-  displace(0.0*size,0.10*size,-0.1216*size);
-  torus(0.0102*size, 0.018*size);
-  expand(size*0.03*sin(2*time));
-});
-let raccoonNose = shape( () => {
-  color(standard);
-  //let s = getSpace();
-  displace(0.0,-0.0,0.101*size);
-  torus(0.0015*size, 0.00018*size);
-  //expand(0.02*size);
-}); nose();
-  blend(0.2*size);
-  sphere(0.03*size);
-});
-let racconMaskSuperior = shape( () => {
-let maskSuperior = shape( () => {
- displace(0.0*size,0.03*size,0.19*size);
- color(standard)
- torus(0.093*size, 0.23*size);
-});
-let racconMaskInferior = shape( () => {
- rotateZ(PI/2);
- displace(-0.094*size,-0.074*size, .091*size);
-color(standard);
- torus(0.093*size, 0.331*size);
-});
-outerEarRaccoon();
-racconSnout();
-raccoonNose();
-raccoonMouth();
-racconMaskSuperior();
-racconMaskInferior();
-//**********************************************************************rabbit
-let innerBunnyEar= shape( () => {
-  color(standard);
-  displace(0.215*size,0.289*size,0.51*size);
-  rotateZ(PI/1.1);
-  rotateY(PI/3);
-  cylinder(0.076*size,0.289*size);
-  blend(0.432*size);
-  color(standard);
-  sphere(0.0258*size);
-  expand(0.01*size);
-});
-let outerBunnyEar = shape( () => {
-  color(standard)
-  displace(0.215*size,0.4*size,0.0201*size);
-  //rotateX(PI/0.5);
-  rotateZ(PI/1.1);
-  rotateX(PI/9);
-  cylinder(0.098*size,.984*size);
-  blend(0.548*size);
-  color(0.4,0.1,0.0)
-  displace(0.0, 0.0, -0.02*size);
-  sphere(0.179*size);
-});
-innerBunnyEars();
-outerBunnyEars();
-//*************************************************************************cat
-let outercatEar =shape( () => {
-});
-let innercatEar= shape( () => {
-});
-let catWhisker= shape( () => {
-});
-let catMouth = shape( () => {
-  let lips = shape( () => {
-  color(red);
-  //let s = getSpace();
-  displace(0.0*size,-0.19*size, 0.5*size);
-  torus(0.0321*size, 0.0918*size);
-  expand(0.0001*size);
-   let philtrum = shape( () => {
-   color(0.5,0.0,0.1);
-  displace(size*-0.02, 0.0456*size, 0.24*size);
-  torus(0.0374*size, 0.059*size);
-  let tongue = shape( () => {
-  color(1.0,0.00,0.05);
-  displace(0.01*size, -0.059*size, 0.04*size);
-  torus(0.03*size, 0.049*size);
-  expand(0.03*sin(2*time));
-}); tongue();
-}); philtrum();
-}); lips();
-});
-let catNose = shape( () => {
-  rotateZ(PI/2);
-  color(0.0,0.0,0.0);
-  //let s = getSpace();
-  displace(-0.09*size, -0.015*size ,0.3941*size);
-  torus(0.015*size, 0.0198*size);
-  expand(0.019*size);
-});
-outerCatEar();
-innerCatEar();
-catMouth();
-catNose();
-//*********************************************************************lizard
- let longTongue = shape( () => {
- displace(0.00*size, -0.1*size,0.6*size);
-  rotateZ(PI/2);
-  color(red);
-  rotateY(0.03*sin(PI/0.8));
-  displace(0.00*size, 0.0*size, -0.20*size);
-  torus(0.02*size, 0.1*size);
-  blend(0.13*size);
-  rotateY(-PI/0.00007657,);
-  displace(0.00*size, 0.0*size, 0.20*size);
-  displace(0.2*size*0.3*sin(4*time), 0.0*size, 0.0*size);
-  box(0.02*size, 0.0206*size, 0.2*size);
-  displace(-0.030*size, -0.00*size, 0.1*size);
-  blend(0.18*size);
-  displace(0.02*size*1.75*sin(4*time), 0.0*size, 0.030*size);
-  sphere(0.006*size);
-  rotateZ(PI/2);
-});
-longTongue();
-//*********************************************************************elepant
-let elephantTrunk = shape( () => {
-});
-let elephantTusks = shape( () => {
-});
-let elephantEars let tusks = shape( () => {
- rotateY(0.2*sin(time*4))
-  color(lightBlue);
-  displace(0.57*size,-0.15*size,-0.012*size);
-  let p = getSpace();
-  let sd = sphericalDistribution(p,75.0);
-  rotateX(PI/0.5);
-  rotateZ(PI/1.1);
-  rotateY(PI/5);
-  cylinder(0.09*size,0.22*size);
-  blend(0.26*size);
-  color(lightBlue);
-   sphere(size*0.13-sd.w*0.1*size);
-  rotateX(PI/1.9);
-  torus(size*0.125-sd.w*0.043*size, size*0.0571-sd.w*0.01*size);
-  displace(-0.1091*size,-0.170*size, -0.029*size);
-  //rotateZ(PI/1);
-  torus(size*0.25-sd.w*0.03*size, size*0.1-sd.w*0.09*size);
-  //wing subtract
-  color(white);
-  displace(0.0,0.35*size, -0.42*size);
-  //rotateZ(PI/1);
-  torus(0.2*size-sd.w*0.03*size, size*0.2-sd.w*0.09*size);
-});
-elephantTrunk();
-elephantTusks();
-elephantEars();
-//*******************************************************************butterfly
-//***********************************************************************human
-let humanHair = shape( () => {
-let p = getSpace();
-let sd = sphericalDistribution(p,20.0);
-  color(lightBlue);
-  sphere(size*0.35-sd.w*0.1*size);
-  color(lightBlue);
-  displace(0.0*size,0.3*size,0.3*size);
-  rotateX(PI/0.5);
-  rotateZ(PI/1);
-  rotateY(PI/7);
-  cylinder(0.0009*size,0.22*size);
-  blend(0.26*size);
-  color(lightBlue);
-  sphere(size*0.25-sd.w*0.1*size);
-});
-humanHair();
-//***********************************************************standardAnimation
-//****************************************************************headAndNeck
-let headAndNeckVertical = shape( () => {
+let avi = shape( () => {
+let facialFeaturesVertical = shape( () => {
+  let headAndNeckVertical = shape( () => {
   color(standard);
   let head = shape( () => {
 });
@@ -307,8 +13,8 @@ let neck = shape( () => {
   displace(0.0*size, -0.55*size, 0.33*size);
   torus(.049*size, 0.180*size);
 });
-//head();
-//neck();
+head();
+neck();
 });
 let headAndNeckHorizontal = shape(() => {
   displace(-0.0*size, 0.02*size, 0.45*size);
@@ -316,75 +22,20 @@ let headAndNeckHorizontal = shape(() => {
   rotateX(PI/7.38);
   headAndNeckVertical();
 });
-headAndNeckVertical();
-headAndNeckHorizontal();
-//**************************************************************facialFeatures
-let facialFeaturesVertical = shape( () => {
 let facialFeatures = shape( () => {
+ //mouth();
 });
  //combine facial features to animate simultaneously
-//mouth();
-});
-let facialFeaturesHorizontal = shape( () => {
-  displace(0.0*size, 0.02*size, 0.45*size);
-  facialFeaturesVertical();
-});
-});
-//********************************************************************clothing
-let clothing = shape( () => {
-let clothingVertical = shape( () => {
-});
-  let horizontalClothing = shape( () => {
-  displace(0.0*size, 0.0*size, 0.2*size);
-   verticalClothing()
-});
-//************************************************************************body
-//***********************************************************standardAnimation
-//****************************************************************headAndNeck
-let animation = shape( () => {
-  displace(0.0, -0.33, -0.20);
-let headAndNeckVertical = shape( () => {
-  color(standard);
-  let head = shape( () => {
-});
-let neck = shape( () => {
-  rotateX(PI/-.55);
-  displace(0.0, 0.1*size, -0.06*size);
-  blend(0.002*size);
-  blend(0.002*size);
-  displace(0.0, 0.1*size, -0.06*size);
-  displace(0.0*size, -0.55*size, 0.33*size);
-  torus(.049*size, 0.180*size);
-});
-//head();
-//neck();
-});
-let headAndNeckHorizontal = shape(() => {
-  displace(-0.0*size, 0.02*size, 0.45*size);
-  rotateY(PI/.5);
-  rotateX(PI/7.38);
-  headAndNeckVertical();
-});
-headAndNeckVertical();
-headAndNeckHorizontal();
-//**************************************************************facialFeatures
-let facialFeaturesVertical = shape( () => {
-let facialFeatures = shape( () => {
-});
- //combine facial features to animate simultaneously
-//mouth();
-});
 let facialFeaturesHorizontal = shape( () => {
   displace(0.0*size, 0.02*size, 0.45*size);
   facialFeaturesVertical();
 });
 //********************************************************************clothing
-let clothing = shape( () => {
 let clothingVertical = shape( () => {
 });
-  let horizontalClothing = shape( () => {
+  let clothingHorizontal = shape( () => {
   displace(0.0*size, 0.0*size, 0.2*size);
-   verticalClothing()
+   verticalClothing();
 });
 //************************************************************************body
 let torsoVertical = shape(() => {
@@ -400,7 +51,6 @@ let torsoHorizontal = shape(() => {
   verticalTorso();
   expand(0.02*size);
 });
-let limbs = shape( () => {
   let verticalLimbs = shape( () => {
   let arms = shape( () => {
   color(standrd);
@@ -433,23 +83,21 @@ let horizontalLimbs = shape( () => {
 });
 let verticalAvi = shape( () => {
   verticalHeadAndNeck();
-  verticalClothing();
+  //verticalClothing();
   mirrorX();
   verticalTorso();
   verticalLimbs();
+  verticalFacialFeatures();
 });
 let horizontalAvi = shape( () => {
   horizontalHeadAndNeck();
-  horizontalClothing();
+  //horizontalClothing();
   horizontalTorso();
   mirrorX();
   horizontalLimbs();
-  horizontalFacialFeatures();
+  //horizontalFacialFeatures();
 });
-let avi = shape( () => {
 verticalAvi();
 //horizontalAvi();
 });
-avi();
-});
-animation();
+avi(); 
