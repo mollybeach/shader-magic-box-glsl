@@ -297,19 +297,20 @@ let humanNose = shape(() => {
     sphere(0.0239*size);
   });
   humanNose();
-let pacifer = function(){
-let pink = vec3(3.0, 0.5, 1.0);
-color(pink);
-rotateX(PI/2);
-cylinder(0.15, 0.051);
-displace(0.0, 0.08, 0.0);
-color(pink-0.4);
-sphere(0.1);
-rotateZ(PI/2.4);
-displace(0.050, 0.0, 0.0);
-color(pink*0.5);
-torus(0.09, 0.021);
-}
+let pacifer= shape(() => {
+  let pink = vec3(3.0, 0.5, 1.0);
+  displace(0.0, 0.450, 0.55614);
+  color(pink);
+  rotateX(PI/2);
+  cylinder(0.09115, 0.0451);
+  displace(0.0, 0.038, 0.0);
+  color(pink-0.4);
+  sphere(0.0561);
+  rotateX(PI/1.8);
+  displace(0.050, 0.0, -0.030);
+  color(pink*0.5);
+  torus(0.04, 0.021);
+});
 pacifer();
 //**************************************************************facialFeatures
 let facialFeaturesVertical = shape( () => {
