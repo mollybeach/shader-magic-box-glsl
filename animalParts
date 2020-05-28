@@ -323,6 +323,55 @@ displace(0.050*size, 0.0, -0.030*size);
 color(pink*0.5);
 torus(0.04*size, 0.021*size);
 });
+let eyeAndBrow = shape( () => {
+   displace(-0.01, 0.50*size, 0.30*size);
+let eyes = shape( () => {
+let sclera = shape( () => {
+  color(white);
+  displace(0.19*size,0.048*size,-0.01*size);
+});
+let iris = shape( () => {
+  color(white);
+  displace(0.0*size, 0.0*size, -0.01230*size);
+  rotateZ(-PI/14);
+  displace(0.1721*size,0.099*size,0.283*size);
+  rotateZ(PI/2);
+  torus(0.071*size, 0.0681*size);
+  expand(0.02*size);
+});
+let pupil = shape( () => {
+  color(magenta);
+  displace(0.20*size, 0.1*size, 0.23*size);
+  rotateZ(PI/2);
+  torus(0.05*size, 0.109*size);
+  color(blue);
+  displace(-0.0311*size,0.0123*size,0.145*size);
+  sphere(0.0805*size);
+});
+let eyeHighlight = shape( () => {
+  color(lightBlue);
+  displace(0.253*size, 0.150*size, 0.34*size);
+  sphere(0.041*size);
+  expand(0.02*size);
+});
+  sclera();
+  iris();
+  pupil();
+  eyeHighlight();
+});
+let eyebrow = shape( () => {
+  rotateZ(-0.5);
+  color(lightGreen);
+  displace(0.0*size, size*-0.010*sin(time*2), -0.0*size);
+  displace(0.0912*size,0.2943*size,0.3633*size);
+  torus(0.056*size, 0.04*size);
+});
+    //displace(0.0*size,size*0.05*sin(time*2), 0.20*size);
+  eyes();
+  eyebrow()
+  });
+  mirrorX();
+eyeAndBrow();
 //**************************************************************facialFeatures
 let facialFeaturesVertical = shape( () => {
 let facialFeatures = shape( () => {
