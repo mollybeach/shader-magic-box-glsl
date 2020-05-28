@@ -291,12 +291,24 @@ let sd = sphericalDistribution(p,20.0);
   sphere(size*0.25-sd.w*0.1*size);
 });
 humanHair();
-let humanNose = shape(() => {
-    displace(0.0, 0.450*size, 0.5750);
+ let babyHair = shape( () => {
+  let lightBrown = vec3(1.0,0.64,0.03);
+    color(lightBrown);
+  displace(0.021*size,0.87*size,0.21*size);
+  rotateZ(PI/1.14);
+  rotateX(PI/9);
+  cylinder(0.013*size,0.4263*size);
+  blend(0.46*size);
+  sphere(0.0151*size);
+});
+  babyHair();
+  let humanNose = shape(() => {
+    displace(0.0, 0.560*size, 0.5750);
     color(skinColor);
-    sphere(0.0239*size);
+    sphere(0.029*size);
   });
   humanNose();
+});
 let pacifer= shape(() => {
 let pink = vec3(3.0, 0.5, 1.0);
 displace(0.0, 0.450*size, 0.55614*size);
