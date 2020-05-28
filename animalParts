@@ -291,6 +291,12 @@ let sd = sphericalDistribution(p,20.0);
   sphere(size*0.25-sd.w*0.1*size);
 });
 humanHair();
+let humanNose = shape(() => {
+    displace(0.0, 0.450*size, 0.5750);
+    color(skinColor);
+    sphere(0.0239*size);
+  });
+  humanNose();
 //**************************************************************facialFeatures
 let facialFeaturesVertical = shape( () => {
 let facialFeatures = shape( () => {
